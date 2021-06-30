@@ -122,16 +122,8 @@ files:
     }
   learner_created: false
 feedback_link: https://hyperskill.org/projects/51/stages/277/implement#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Wrong answer in test #1
-
-    The input is:
-    _X_
-    _X_
-    XX_
-
-    Your output is:
-  time: Tue, 29 Jun 2021 23:59:33 UTC
+  message: Congratulations!
+  time: Wed, 30 Jun 2021 02:03:29 UTC
 record: -1
