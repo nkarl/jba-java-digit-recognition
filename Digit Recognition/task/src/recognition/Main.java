@@ -31,7 +31,7 @@ public class Main {
 
 class NeuralNet {
     int size = 3;
-    int[][] w = new int[3][3];
+    int[][] w = new int[size][size];
     int b;
 
     NeuralNet() {
