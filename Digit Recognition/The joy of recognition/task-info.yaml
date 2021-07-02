@@ -238,6 +238,9 @@ files:
         }
     }
   learner_created: false
+- name: src/recognition/InputNeurons.java
+  visible: true
+  learner_created: true
 - name: src/recognition/OutputNeurons.java
   visible: true
   learner_created: true
