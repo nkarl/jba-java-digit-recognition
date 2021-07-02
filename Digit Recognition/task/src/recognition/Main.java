@@ -11,11 +11,11 @@ public class Main {
         for (int i = 0; i < size; ++i) {
             String line = scanner.nextLine();
             for (int j = 0; j < size; ++j) {
-                bitmap[i][j] = (line.charAt(j) == '_') ? 0 : 1;
+                bitmap[i][j] = (line.charAt(j) == '_') ? -1 : 1;
             }
         }
     
-        NeuralNet net = new NeuralNet();
+        OutputNeurons net = new OutputNeurons();
         int neuron = 0;
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
