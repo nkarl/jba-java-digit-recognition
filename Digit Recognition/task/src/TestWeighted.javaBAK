@@ -1,4 +1,4 @@
-import recognition.Weighted;
+import recognition.WeightMap;
 
 public class TestWeighted {
     public static void main (String[] args) {

@@ -301,7 +301,85 @@ files:
   visible: true
   text: yv66vgAAADcAVgcAAgEADFRlc3RXZWlnaHRlZAcABAEAEGphdmEvbGFuZy9PYmplY3QBAAY8aW5pdD4BAAMoKVYBAARDb2RlCgADAAkMAAUABgEAD0xpbmVOdW1iZXJUYWJsZQEAEkxvY2FsVmFyaWFibGVUYWJsZQEABHRoaXMBAA5MVGVzdFdlaWdodGVkOwEABG1haW4BABYoW0xqYXZhL2xhbmcvU3RyaW5nOylWBwARAQAUcmVjb2duaXRpb24vV2VpZ2h0ZWQKABAACQoAAwAUDAAVABYBAAhnZXRDbGFzcwEAEygpTGphdmEvbGFuZy9DbGFzczsJABgAGgcAGQEAEGphdmEvbGFuZy9TeXN0ZW0MABsAHAEAA291dAEAFUxqYXZhL2lvL1ByaW50U3RyZWFtOwkAEAAeDAAfACABAANtYXABAANbW0kKACIAJAcAIwEAE2phdmEvaW8vUHJpbnRTdHJlYW0MACUAJgEABXByaW50AQAEKEkpVgoAIgAoDAAlACkBAAQoQylWCgAiACsMACwABgEAB3ByaW50bG4KAC4AMAcALwEAEWphdmEvbGFuZy9JbnRlZ2VyDAAxADIBAAhwYXJzZUludAEAFShMamF2YS9sYW5nL1N0cmluZzspSQoAEAA0DAA1ACYBAAdtYXBJbml0BwA3AQAXamF2YS9sYW5nL1N0cmluZ0J1aWxkZXIIADkBAAZCTFVFOiAKADYAOwwABQA8AQAVKExqYXZhL2xhbmcvU3RyaW5nOylWCgA2AD4MAD8AQAEABmFwcGVuZAEAHChJKUxqYXZhL2xhbmcvU3RyaW5nQnVpbGRlcjsKADYAQgwAQwBEAQAIdG9TdHJpbmcBABQoKUxqYXZhL2xhbmcvU3RyaW5nOwoAIgBGDAAsADwIAEgBAAhXSElURSA6IAEABGFyZ3MBABNbTGphdmEvbGFuZy9TdHJpbmc7AQAFd1Rlc3QBABZMcmVjb2duaXRpb24vV2VpZ2h0ZWQ7AQABcgEAAUkBAAFjAQABaQEAAWoBAA1TdGFja01hcFRhYmxlBwBKAQAKU291cmNlRmlsZQEAEVRlc3RXZWlnaHRlZC5qYXZhACEAAQADAAAAAAACAAEABQAGAAEABwAAAC8AAQABAAAABSq3AAixAAAAAgAKAAAABgABAAAAAwALAAAADAABAAAABQAMAA0AAAAJAA4ADwABAAcAAAHCAAQABgAAANW7ABBZtwASTCu2ABNXCD0rtgATVwY+AzYEpwAzAzYFpwAesgAXK7QAHRUEMhUFLrYAIbIAFxAgtgAnhAUBFQUdof/isgAXtgAqhAQBFQQcof/NsgAXtgAqKyoDMrgALbYAMwM2BKcAMwM2BacAHrIAFyu0AB0VBDIVBS62ACGyABcQILYAJ4QFARUFHaH/4rIAF7YAKoQEARUEHKH/zbIAF7sANlkSOLcAOiu2ABNXBLYAPbYAQbYARbIAF7sANlkSR7cAOiu2ABNXArYAPbYAQbYARbEAAAADAAoAAABaABYAAAAGAAgABwAPAAgAFgAKABwACwAiAAwAMgANADoACwBDAA8ASQAKAFIAEQBYABQAYgAWAGgAFwBuABgAfgAZAIYAFwCPABsAlQAWAJ4AHQC5AB4A1AAfAAsAAABSAAgAAADVAEkASgAAAAgAzQBLAEwAAQAPAMYATQBOAAIAFgC/AE8ATgADABkAOQBQAE4ABAAfACQAUQBOAAUAZQA5AFAATgAEAGsAJABRAE4ABQBSAAAAIwAI/wAcAAUHAFMHABABAQEAAPwABQEa+gAOG/wABQEa+gAOAAEAVAAAAAIAVQ==
   learner_created: true
-- name: src/recognition/Weighted.java
+- name: src/recognition/NeuralNet.java
+  visible: true
+  text: |
+    package recognition;
+
+    public class NeuralNet {
+        public int[] output;
+        public int[]   biases;
+        InNeurons input;
+
+        public NeuralNet(InNeurons input) {
+            this.output = new int[10];  // for the 10 digits
+            this.biases = new int[10];  // one bias for each digit
+            this.input = input;
+            mapBiases();
+        }
+
+        public int mapReduce() {
+            for (int i = 0; i < 10; ++i) {
+                output[i] = mapToDigit(i) + biases[i];
+            }
+            int max = 0, number = 0;
+            for (int i = 0; i < 10; ++i) {
+                if (this.output[i] >= max) {
+                    max = this.output[i];
+                    number = i;
+                }
+            }
+            return number;
+        }
+
+        public int mapToDigit(int digit) {
+            Weighted wDigit = new Weighted();
+            wDigit.mapInit(digit);
+
+            int r = wDigit.r_dim;
+            int c = wDigit.c_dim;
+            int result = 0;
+            for (int i = 0; i < r; ++i) {
+                for (int j = 0; j < c; ++j) {
+                    result += (this.input.map[i][j] * wDigit.map[i][j]);
+                }
+            }
+            return result;
+        }
+
+        void mapBiases() {
+            this.biases[0] = -1;
+            this.biases[1] = 6;
+            this.biases[2] = 1;
+            this.biases[3] = 0;
+            this.biases[4] = 2;
+            this.biases[5] = 0;
+            this.biases[6] = -1;
+            this.biases[7] = 3;
+            this.biases[8] = -2;
+            this.biases[9] = -1;
+        }
+    //    void mapBiases() {
+    //        this.biases[1] = 6;
+    //        this.biases[2] = 1;
+    //        this.biases[3] = this.biases[5] = 0;
+    //        this.biases[4] = 2;
+    //        this.biases[6] = this.biases[9] = this.biases[0] = -1;
+    //        this.biases[7] = 3;
+    //        this.biases[8] = -2;
+    //    }
+    }
+  learner_created: true
+- name: src/TestWeighted.javaBAK
+  visible: true
+  learner_created: true
+- name: src/stage2_BAK.zip
+  visible: true
+  learner_created: true
+- name: src/recognition/designdocs/mi-3.md
+  visible: true
+  learner_created: true
+- name: src/recognition/WeightMap.java
   visible: true
   text: |
     package recognition;
@@ -381,7 +459,7 @@ files:
         }
     }
   learner_created: true
-- name: src/recognition/InNeurons.java
+- name: src/recognition/InputMap.java
   visible: true
   text: "package recognition;\n\nimport java.util.Scanner;\n\npublic class InNeurons\
     \ extends DigitMap {\n    public InNeurons() {\n        Scanner scanner = new\
@@ -391,81 +469,6 @@ files:
     \           this.map[i][j] = (line.charAt(j) == '_') ? WHITE : BLUE;\n       \
     \     }\n        }\n        scanner.close();  // close scanner\n    }\n    \n\
     \    public InNeurons(DigitMap in) {\n        this.map = in.map;\n    }\n}\n"
-  learner_created: true
-- name: src/recognition/NeuralNet.java
-  visible: true
-  text: |
-    package recognition;
-
-    public class NeuralNet {
-        public int[] output;
-        public int[]   biases;
-        InNeurons input;
-
-        public NeuralNet(InNeurons input) {
-            this.output = new int[10];  // for the 10 digits
-            this.biases = new int[10];  // one bias for each digit
-            this.input = input;
-            mapBiases();
-        }
-
-        public int mapReduce() {
-            for (int i = 0; i < 10; ++i) {
-                output[i] = mapToDigit(i) + biases[i];
-            }
-            int max = 0, number = 0;
-            for (int i = 0; i < 10; ++i) {
-                if (this.output[i] >= max) {
-                    max = this.output[i];
-                    number = i;
-                }
-            }
-            return number;
-        }
-
-        public int mapToDigit(int digit) {
-            Weighted wDigit = new Weighted();
-            wDigit.mapInit(digit);
-
-            int r = wDigit.r_dim;
-            int c = wDigit.c_dim;
-            int result = 0;
-            for (int i = 0; i < r; ++i) {
-                for (int j = 0; j < c; ++j) {
-                    result += (this.input.map[i][j] * wDigit.map[i][j]);
-                }
-            }
-            return result;
-        }
-
-        void mapBiases() {
-            this.biases[0] = -1;
-            this.biases[1] = 6;
-            this.biases[2] = 1;
-            this.biases[3] = 0;
-            this.biases[4] = 2;
-            this.biases[5] = 0;
-            this.biases[6] = -1;
-            this.biases[7] = 3;
-            this.biases[8] = -2;
-            this.biases[9] = -1;
-        }
-    //    void mapBiases() {
-    //        this.biases[1] = 6;
-    //        this.biases[2] = 1;
-    //        this.biases[3] = this.biases[5] = 0;
-    //        this.biases[4] = 2;
-    //        this.biases[6] = this.biases[9] = this.biases[0] = -1;
-    //        this.biases[7] = 3;
-    //        this.biases[8] = -2;
-    //    }
-    }
-  learner_created: true
-- name: src/recognition/designdocs/mi-2.md
-  visible: true
-  learner_created: true
-- name: src/TestWeighted.javaBAK
-  visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/projects/51/stages/279/implement#comment
 status: Failed
