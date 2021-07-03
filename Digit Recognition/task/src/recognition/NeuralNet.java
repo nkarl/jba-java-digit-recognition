@@ -1,10 +1,14 @@
 package recognition;
 
 public class NeuralNet {
+    public int[] biases;
     public int[] output;
-    public int[]   biases;
-    InNeurons input;
+    InNeurons    input;
 
+    /**
+     * Creates and initialize a digit-recognizer neural network.
+     * @param input the matrix of input-neurons.
+     */
     public NeuralNet(InNeurons input) {
         this.output = new int[10];  // for the 10 digits
         this.biases = new int[10];  // one bias for each digit
@@ -12,6 +16,10 @@ public class NeuralNet {
         mapBiases();
     }
 
+    /**
+     * Computes and reduce the mapping to a recognized digit.
+     * @return the recognized digit.
+     */
     public int mapReduce() {
         for (int i = 0; i < 10; ++i) {
             output[i] = mapToDigit(i) + biases[i];
@@ -26,9 +34,15 @@ public class NeuralNet {
         return number;
     }
 
-    public int mapToDigit(int digit) {
+    /**
+     * Perform a linear combination of the input matrix and weighted matrix
+     * for a given digit.
+     * @param digit the digit to be reduced to.
+     * @return a scalar
+     */
+    int mapToDigit(int digit) {
         Weighted wDigit = new Weighted();
-        wDigit.mapInit(digit);
+        wDigit.mapWeights(digit);
 
         int r = wDigit.r_dim;
         int c = wDigit.c_dim;
@@ -41,25 +55,16 @@ public class NeuralNet {
         return result;
     }
 
+    /**
+     * hard-coded biases. To be removed at stage 3/6.
+     */
     void mapBiases() {
-        this.biases[0] = -1;
         this.biases[1] = 6;
         this.biases[2] = 1;
-        this.biases[3] = 0;
+        this.biases[3] = this.biases[5] = 0;
         this.biases[4] = 2;
-        this.biases[5] = 0;
-        this.biases[6] = -1;
+        this.biases[6] = this.biases[9] = this.biases[0] = -1;
         this.biases[7] = 3;
         this.biases[8] = -2;
-        this.biases[9] = -1;
     }
-//    void mapBiases() {
-//        this.biases[1] = 6;
-//        this.biases[2] = 1;
-//        this.biases[3] = this.biases[5] = 0;
-//        this.biases[4] = 2;
-//        this.biases[6] = this.biases[9] = this.biases[0] = -1;
-//        this.biases[7] = 3;
-//        this.biases[8] = -2;
-//    }
 }
