@@ -15,4 +15,8 @@ public class InNeurons extends DigitMap {
         }
         scanner.close();  // close scanner
     }
+    
+    public InNeurons(DigitMap in) {
+        this.map = in.map;
+    }
 }
