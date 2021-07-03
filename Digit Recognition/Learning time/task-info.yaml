@@ -267,6 +267,203 @@ files:
         }
     }
   learner_created: false
+- name: src/recognition/DigitMap.java
+  visible: true
+  text: |+
+    package recognition;
+
+    public class DigitMap {
+        public final int WHITE = -1;
+        public final int BLUE = 1;
+        public final int r_dim = 5;
+        public final int c_dim = 3;
+        public int[][] map = new int[r_dim][c_dim];
+
+        public DigitMap() {
+            for (int i=0; i< r_dim; ++i) {
+                for (int j = 0; j < c_dim; ++j) {
+                    this.map[i][j] = WHITE;
+                }
+            }
+        }
+    }
+
+  learner_created: true
+- name: bin/main/recognition/Weighted.class
+  visible: true
+  text: yv66vgAAADcAGwcAAgEAFHJlY29nbml0aW9uL1dlaWdodGVkBwAEAQAUcmVjb2duaXRpb24vRGlnaXRNYXABAAY8aW5pdD4BAAMoKVYBAARDb2RlCgADAAkMAAUABgEAD0xpbmVOdW1iZXJUYWJsZQEAEkxvY2FsVmFyaWFibGVUYWJsZQEABHRoaXMBABZMcmVjb2duaXRpb24vV2VpZ2h0ZWQ7AQAHbWFwSW5pdAEABChJKVYJAAEAEQwAEgATAQADbWFwAQADW1tJAQAFZGlnaXQBAAFJAQABagEAAWkBAA1TdGFja01hcFRhYmxlAQAKU291cmNlRmlsZQEADVdlaWdodGVkLmphdmEAIQABAAMAAAAAAAIAAQAFAAYAAQAHAAAALwABAAEAAAAFKrcACLEAAAACAAoAAAAGAAEAAAADAAsAAAAMAAEAAAAFAAwADQAAAAEADgAPAAEABwAAAysABgAEAAABthuqAAAAAAG0AAAAAAAAAAkAAAA3AAAAawAAANcAAADXAAAAhAAAANcAAADXAAAAhAAAANcAAADXAz2nABgqtAAQHDIDBE8qtAAQHDIFBE+EAgEcCKH/6Sq0ABADMgQETyq0ABAHMgQET6cBTAM9pwAPKrQAEBwyBARPhAIBHAih//KnATMDPacADyq0ABAcMgUET4QCARwIof/yGxAHoAAYKrQAEAMyAyq0ABADMgQEW09PpwECAz2nAA8qtAAQHDIDBE+EAgEcBqH/8iq0ABAFMgQET6cA4AM9pwAcAz6nAA8qtAAQHDIdBE+EAwEdBqH/8oQCAhwIof/lGwWgABgqtAAQBDIFBE8qtAAQBjIDBE+nAKMbBqAAGCq0ABAEMgUETyq0ABAGMgUET6cAiRsIoAAYKrQAEAQyAwRPKrQAEAYyBQRPpwBvGxAGoAAhKrQAEAQyAwRPKrQAEAYyAyq0ABAGMgUEW09PpwBLGxAIoAAqKrQAEAQyAyq0ABAEMgUEW09PKrQAEAYyAyq0ABAGMgUEW09PpwAeKrQAEAQyAyq0ABAEMgUEW09PKrQAEAYyBQRPsQAAAAMACgAAAM4AMwAAAAYAOAAIAD0ACQBGAAoATwAIAFcADABgAA0AaQAOAGwAEQBxABIAegARAIIAFACFABgAigAZAJMAGACbABsAoQAcALMAHQC2AB8AuwAgAMQAHwDMACIA1QAkANgALADdAC0A4gAuAOsALQDzACwA+wAxAQAAMgEJADMBEgA0ARUANQEaADYBIwA3ASwAOAEvADkBNAA6AT0AOwFGADwBSQA9AU8APgFYAD8BagBAAW0AQQFzAEIBhQBDAZcARAGaAEYBrABHAbUASwALAAAAUgAIAAABtgAMAA0AAAAAAbYAFAAVAAEAOgAdABYAFQACAG4AFAAXABUAAgCHABQAFwAVAAIAuAAUABcAFQACANoAIQAXABUAAgDfABQAFgAVAAMAGAAAADcAFzj8AAQBFPoAGfwABAEL+gAH/AAEAQv6AB/8AAQBC/oAEPwABAH8AAQBC/oAB/oAHhkZIywaAAEAGQAAAAIAGg==
+  learner_created: true
+- name: bin/main/recognition/DigitMap.class
+  visible: true
+  text: yv66vgAAADcAKgcAAgEAFHJlY29nbml0aW9uL0RpZ2l0TWFwBwAEAQAQamF2YS9sYW5nL09iamVjdAEABVdISVRFAQABSQEADUNvbnN0YW50VmFsdWUD/////wEABEJMVUUDAAAAAQEABXJfZGltAwAAAAUBAAVjX2RpbQMAAAADAQADbWFwAQADW1tJAQAGPGluaXQ+AQADKClWAQAEQ29kZQoAAwAVDAARABIJAAEAFwwABQAGCQABABkMAAkABgkAAQAbDAALAAYJAAEAHQwADQAGBwAQCQABACAMAA8AEAEAD0xpbmVOdW1iZXJUYWJsZQEAEkxvY2FsVmFyaWFibGVUYWJsZQEABHRoaXMBABZMcmVjb2duaXRpb24vRGlnaXRNYXA7AQABaQEAAWoBAA1TdGFja01hcFRhYmxlAQAKU291cmNlRmlsZQEADURpZ2l0TWFwLmphdmEAIQABAAMAAAAFABEABQAGAAEABwAAAAIACAARAAkABgABAAcAAAACAAoAEQALAAYAAQAHAAAAAgAMABEADQAGAAEABwAAAAIADgABAA8AEAAAAAEAAQARABIAAQATAAAAywADAAMAAABGKrcAFCoCtQAWKgS1ABgqCLUAGioGtQAcKggGxQAeArUAHwM8pwAcAz2nAA8qtAAfGzIcAk+EAgEcBqH/8oQBARsIof/lsQAAAAMAIQAAADIADAAAAAoABAAEAAkABQAOAAYAEwAHABgACAAiAAsAJwAMACwADQA1AAwAPQALAEUAEAAiAAAAIAADAAAARgAjACQAAAAkACEAJQAGAAEAKQAUACYABgACACcAAAAVAAT/ACcAAgcAAQEAAPwABAEL+gAHAAEAKAAAAAIAKQ==
+  learner_created: true
+- name: bin/main/TestWeighted.class
+  visible: true
+  text: yv66vgAAADcAVgcAAgEADFRlc3RXZWlnaHRlZAcABAEAEGphdmEvbGFuZy9PYmplY3QBAAY8aW5pdD4BAAMoKVYBAARDb2RlCgADAAkMAAUABgEAD0xpbmVOdW1iZXJUYWJsZQEAEkxvY2FsVmFyaWFibGVUYWJsZQEABHRoaXMBAA5MVGVzdFdlaWdodGVkOwEABG1haW4BABYoW0xqYXZhL2xhbmcvU3RyaW5nOylWBwARAQAUcmVjb2duaXRpb24vV2VpZ2h0ZWQKABAACQoAAwAUDAAVABYBAAhnZXRDbGFzcwEAEygpTGphdmEvbGFuZy9DbGFzczsJABgAGgcAGQEAEGphdmEvbGFuZy9TeXN0ZW0MABsAHAEAA291dAEAFUxqYXZhL2lvL1ByaW50U3RyZWFtOwkAEAAeDAAfACABAANtYXABAANbW0kKACIAJAcAIwEAE2phdmEvaW8vUHJpbnRTdHJlYW0MACUAJgEABXByaW50AQAEKEkpVgoAIgAoDAAlACkBAAQoQylWCgAiACsMACwABgEAB3ByaW50bG4KAC4AMAcALwEAEWphdmEvbGFuZy9JbnRlZ2VyDAAxADIBAAhwYXJzZUludAEAFShMamF2YS9sYW5nL1N0cmluZzspSQoAEAA0DAA1ACYBAAdtYXBJbml0BwA3AQAXamF2YS9sYW5nL1N0cmluZ0J1aWxkZXIIADkBAAZCTFVFOiAKADYAOwwABQA8AQAVKExqYXZhL2xhbmcvU3RyaW5nOylWCgA2AD4MAD8AQAEABmFwcGVuZAEAHChJKUxqYXZhL2xhbmcvU3RyaW5nQnVpbGRlcjsKADYAQgwAQwBEAQAIdG9TdHJpbmcBABQoKUxqYXZhL2xhbmcvU3RyaW5nOwoAIgBGDAAsADwIAEgBAAhXSElURSA6IAEABGFyZ3MBABNbTGphdmEvbGFuZy9TdHJpbmc7AQAFd1Rlc3QBABZMcmVjb2duaXRpb24vV2VpZ2h0ZWQ7AQABcgEAAUkBAAFjAQABaQEAAWoBAA1TdGFja01hcFRhYmxlBwBKAQAKU291cmNlRmlsZQEAEVRlc3RXZWlnaHRlZC5qYXZhACEAAQADAAAAAAACAAEABQAGAAEABwAAAC8AAQABAAAABSq3AAixAAAAAgAKAAAABgABAAAAAwALAAAADAABAAAABQAMAA0AAAAJAA4ADwABAAcAAAHCAAQABgAAANW7ABBZtwASTCu2ABNXCD0rtgATVwY+AzYEpwAzAzYFpwAesgAXK7QAHRUEMhUFLrYAIbIAFxAgtgAnhAUBFQUdof/isgAXtgAqhAQBFQQcof/NsgAXtgAqKyoDMrgALbYAMwM2BKcAMwM2BacAHrIAFyu0AB0VBDIVBS62ACGyABcQILYAJ4QFARUFHaH/4rIAF7YAKoQEARUEHKH/zbIAF7sANlkSOLcAOiu2ABNXBLYAPbYAQbYARbIAF7sANlkSR7cAOiu2ABNXArYAPbYAQbYARbEAAAADAAoAAABaABYAAAAGAAgABwAPAAgAFgAKABwACwAiAAwAMgANADoACwBDAA8ASQAKAFIAEQBYABQAYgAWAGgAFwBuABgAfgAZAIYAFwCPABsAlQAWAJ4AHQC5AB4A1AAfAAsAAABSAAgAAADVAEkASgAAAAgAzQBLAEwAAQAPAMYATQBOAAIAFgC/AE8ATgADABkAOQBQAE4ABAAfACQAUQBOAAUAZQA5AFAATgAEAGsAJABRAE4ABQBSAAAAIwAI/wAcAAUHAFMHABABAQEAAPwABQEa+gAOG/wABQEa+gAOAAEAVAAAAAIAVQ==
+  learner_created: true
+- name: src/recognition/Weighted.java
+  visible: true
+  text: |
+    package recognition;
+
+    public class Weighted extends DigitMap {
+
+        public void mapInit(int digit) {
+            switch(digit){
+                case 0:
+                    for (int j = 0; j < r_dim; ++j) {
+                            this.map[j][0] = BLUE;
+                            this.map[j][2] = BLUE;
+                    }
+                    this.map[0][c_dim / 2] = BLUE;
+                    this.map[r_dim - 1][c_dim / 2] = BLUE;
+                    break;
+
+                case 1:
+                    for (int i = 0; i < r_dim; ++i) {
+                        this.map[i][c_dim / 2] = BLUE;
+                    }
+                    break;
+
+                case 4:
+                case 7:
+                    for (int i = 0; i < r_dim; ++i) {
+                        this.map[i][c_dim - 1] = BLUE;
+                    }
+                    if (digit == 7) {
+                        this.map[0][0] = this.map[0][1] = BLUE;
+                    }
+                    else {
+                        for (int i = 0; i < c_dim; ++i) {
+                            this.map[i][0] = BLUE;
+                        }
+                        this.map[2][c_dim / 2] = BLUE;
+                    }
+                    break;
+
+                case 2:
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                    for (int i = 0; i < r_dim; i += 2) {
+                        for (int j = 0; j < c_dim; ++j) {
+                            this.map[i][j] = BLUE;
+                        }
+                    }
+                    if (digit == 2) {
+                        this.map[1][c_dim - 1] = BLUE;
+                        this.map[3][0] = BLUE;
+                    }
+                    else if (digit == 3) {
+                        this.map[1][c_dim - 1] = BLUE;
+                        this.map[3][c_dim - 1] = BLUE;
+                    }
+                    else if (digit == 5) {
+                        this.map[1][0] = BLUE;
+                        this.map[3][c_dim - 1] = BLUE;
+                    }
+                    else if (digit == 6) {
+                        this.map[1][0] = BLUE;
+                        this.map[3][0] = this.map[3][c_dim - 1] = BLUE;
+                    }
+                    else if (digit == 8) {
+                        this.map[1][0] = this.map[1][c_dim - 1] = BLUE;
+                        this.map[3][0] = this.map[3][c_dim - 1] = BLUE;
+                    }
+                    else {
+                        this.map[1][0] = this.map[1][c_dim - 1] = BLUE;
+                        this.map[3][c_dim - 1] = BLUE;
+                    }
+                    break;
+            }
+        }
+    }
+  learner_created: true
+- name: src/TestWeighted.javaBAK
+  visible: true
+  learner_created: true
+- name: src/recognition/InNeurons.java
+  visible: true
+  text: "package recognition;\n\nimport java.util.Scanner;\n\npublic class InNeurons\
+    \ extends DigitMap {\n    public InNeurons() {\n        Scanner scanner = new\
+    \ Scanner(System.in);\n\n        // map the raw string to the weighted (edge)\
+    \ input cells\n        for (int i = 0; i < r_dim; ++i) {\n            String line\
+    \ = scanner.nextLine();\n            for (int j = 0; j < c_dim; ++j) {\n     \
+    \           this.map[i][j] = (line.charAt(j) == '_') ? WHITE : BLUE;\n       \
+    \     }\n        }\n        scanner.close();  // close scanner\n    }\n    \n\
+    \    public InNeurons(DigitMap in) {\n        this.map = in.map;\n    }\n}\n"
+  learner_created: true
+- name: src/recognition/NeuralNet.java
+  visible: true
+  text: |
+    package recognition;
+
+    public class NeuralNet {
+        public int[] output;
+        public int[]   biases;
+        InNeurons input;
+
+        public NeuralNet(InNeurons input) {
+            this.output = new int[10];  // for the 10 digits
+            this.biases = new int[10];  // one bias for each digit
+            this.input = input;
+            mapBiases();
+        }
+
+        public int mapReduce() {
+            for (int i = 0; i < 10; ++i) {
+                output[i] = mapToDigit(i) + biases[i];
+            }
+            int max = 0, number = 0;
+            for (int i = 0; i < 10; ++i) {
+                if (this.output[i] >= max) {
+                    max = this.output[i];
+                    number = i;
+                }
+            }
+            return number;
+        }
+
+        public int mapToDigit(int digit) {
+            Weighted wDigit = new Weighted();
+            wDigit.mapInit(digit);
+
+            int r = wDigit.r_dim;
+            int c = wDigit.c_dim;
+            int result = 0;
+            for (int i = 0; i < r; ++i) {
+                for (int j = 0; j < c; ++j) {
+                    result += (this.input.map[i][j] * wDigit.map[i][j]);
+                }
+            }
+            return result;
+        }
+
+        void mapBiases() {
+            this.biases[0] = -1;
+            this.biases[1] = 6;
+            this.biases[2] = 1;
+            this.biases[3] = 0;
+            this.biases[4] = 2;
+            this.biases[5] = 0;
+            this.biases[6] = -1;
+            this.biases[7] = 3;
+            this.biases[8] = -2;
+            this.biases[9] = -1;
+        }
+    //    void mapBiases() {
+    //        this.biases[1] = 6;
+    //        this.biases[2] = 1;
+    //        this.biases[3] = this.biases[5] = 0;
+    //        this.biases[4] = 2;
+    //        this.biases[6] = this.biases[9] = this.biases[0] = -1;
+    //        this.biases[7] = 3;
+    //        this.biases[8] = -2;
+    //    }
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/51/stages/279/implement#comment
 status: Unchecked
 record: -1
