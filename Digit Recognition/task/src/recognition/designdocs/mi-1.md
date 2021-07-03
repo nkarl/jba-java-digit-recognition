@@ -1,4 +1,4 @@
-# Design Docs: Milestone-1
+# Design Doc: Milestone-1
 
 
 ## Reasoning

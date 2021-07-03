@@ -381,9 +381,6 @@ files:
         }
     }
   learner_created: true
-- name: src/TestWeighted.javaBAK
-  visible: true
-  learner_created: true
 - name: src/recognition/InNeurons.java
   visible: true
   text: "package recognition;\n\nimport java.util.Scanner;\n\npublic class InNeurons\
@@ -464,6 +461,20 @@ files:
     //    }
     }
   learner_created: true
+- name: src/recognition/designdocs/mi-2.md
+  visible: true
+  learner_created: true
+- name: src/TestWeighted.javaBAK
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/51/stages/279/implement#comment
-status: Unchecked
+status: Failed
+feedback:
+  message: "Exception in test #1\n\njava.lang.StringIndexOutOfBoundsException: String\
+    \ index out of range: 1\r\n\tat java.base/java.lang.StringLatin1.charAt(StringLatin1.java:47)\r\
+    \n\tat java.base/java.lang.String.charAt(String.java:693)\r\n\tat recognition.InNeurons.&lt;init&gt;(InNeurons.java:15)\r\
+    \n\tat recognition.Main.main(Main.java:5)\n\nPlease find below the output of your\
+    \ program during this failed test.\nNote that the &#39;&gt;&#39; character indicates\
+    \ the beginning of the input line.\n\n---\n\n&gt; 2"
+  time: Sat, 03 Jul 2021 17:13:37 UTC
 record: 2
