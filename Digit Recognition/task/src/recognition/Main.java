@@ -2,7 +2,7 @@ package recognition;
 
 public class Main {
     public static void main(String[] args) {
-        InputNeurons net = new InputNeurons();
+        NeuralNet net = new NeuralNet();
 
 //        OutputNeurons net = new OutputNeurons();
 //        int neuron = 0;
