@@ -2,22 +2,23 @@ package recognition;
 
 public class Weighted extends DigitMap {
 
-    void mapInit(int digit) {
+    public void mapInit(int digit) {
         switch(digit){
             case 0:
-                for (int i = 0; i < c_dim; i += 2) {
-                    for (int j = 0; j < r_dim; ++j) {
-                        this.map[i][j] = BLUE;
-                    }
+                for (int j = 0; j < r_dim; ++j) {
+                        this.map[j][0] = BLUE;
+                        this.map[j][2] = BLUE;
                 }
                 this.map[0][c_dim / 2] = BLUE;
                 this.map[r_dim - 1][c_dim / 2] = BLUE;
                 break;
+
             case 1:
                 for (int i = 0; i < r_dim; ++i) {
                     this.map[i][c_dim / 2] = BLUE;
                 }
                 break;
+
             case 4:
             case 7:
                 for (int i = 0; i < r_dim; ++i) {
@@ -33,6 +34,7 @@ public class Weighted extends DigitMap {
                     this.map[2][c_dim / 2] = BLUE;
                 }
                 break;
+
             case 2:
             case 3:
             case 5:
