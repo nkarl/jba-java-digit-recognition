@@ -15,9 +15,11 @@ Sigmoid(x) = S(x) = 1 / (1 + e^(-x))
 
 In this stage will need to add an extra step of transforming the reduced value to fit in the range 0 to 1.  As we have seen in stage 2/6, each output neuron is scalar resulted from a linear combination of the input matrix and the weighted matrix.  In stage 3/6, we need to reduce this value further and fit it between 0 and 1.  The Sigmoid function is the best function for this task.  Thus, we will integrate this function into the core computation of the output neurons.  
 
-### Brief overview of the Sigmoid function
-The Sigmoid function is widely popular in statistics.  It is **commonly used as the cumulative distribution function (CDF)** such as the *integrals of the logistic density*, the *normal density*, and *Student's t probability density functions*.
+> #### Brief overview of the Sigmoid function:
+> ---
+> The Sigmoid function is widely popular in statistics.  It is **commonly used as the cumulative distribution function (CDF)** such as the *integrals of the logistic density*, the *normal density*, and *Student's t probability density functions*.
+>
+> And as noted above, it is also used as the *activation function* in artificial neural networks.
 
-And as noted above, it is also used as the *activation function* in artificial neural networks.
-
+### Delta Rule
 
