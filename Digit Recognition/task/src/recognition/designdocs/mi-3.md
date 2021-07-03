@@ -22,4 +22,22 @@ In this stage will need to add an extra step of transforming the reduced value t
 > And as noted above, it is also used as the *activation function* in artificial neural networks.
 
 ### Delta Rule
+The Delta Rule is as folows: for every iteration, find the difference of the current weight between the current iteration and the next iteration.
 
+```tex
+\Delta w_(a_i, a_j) = eta * a_i * (a_j^ideal - a_j)
+
+    where:
+        - Delta is the difference in weight
+        - a_j^ideal is an ideal value
+        - eta is the learning rate coefficient (can vay from 0.1 or les to 10 or more)
+```
+
+We use `eta=0.5` in this stage.
+
+> #### The Ideal neuron:
+> ---
+> In this neuron's matrix, all the cells which compose its shape are colored (value 1) and all other cells are empty (value 0).
+
+
+For complete reference, see original source [@Hyperskill](https://hyperskill.org/projects/51/stages/279/preview).
