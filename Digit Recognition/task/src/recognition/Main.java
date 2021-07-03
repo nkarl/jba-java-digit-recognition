@@ -2,19 +2,14 @@ package recognition;
 
 public class Main {
     public static void main(String[] args) {
-        NeuralNet net = new NeuralNet();
-
-//        OutputNeurons net = new OutputNeurons();
-//        int neuron = 0;
-//        for (int i = 0; i < size; ++i) {
-//            for (int j = 0; j < size; ++j) {
-//                neuron += (bitmap[i][j] * net.w[i][j]);
-//            }
-//        }
-//        neuron += net.b;
-//
-//        int result = (neuron >= 0) ? 0 : 1;
-//
-//        System.out.println("This number is " + result);
+        InNeurons input = new InNeurons();
+        NeuralNet net = new NeuralNet(input);
+        int max = 0;
+        for (var o : net.output) {
+            if (o > max) {
+                max = o;
+            }
+        }
+        System.out.println("This number is " + max);
     }
 }

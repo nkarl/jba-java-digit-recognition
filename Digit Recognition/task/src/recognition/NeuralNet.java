@@ -1,31 +1,35 @@
 package recognition;
 
-import java.util.Scanner;
+public class NeuralNet {
+    public int[] output;
+    public int[]   biases;
+    InNeurons input;
 
-public class NeuralNet extends DigitMap {
-    public int[][] inputCells;
-    public int[] outCells;
-    public int[] biases;
-
-    public NeuralNet() {
-        this.inputCells= this.map;
-
-        Scanner scanner = new Scanner(System.in);
-        // map the raw string to the weighted (edge) input cells
-        for (int i = 0; i < r_dim; ++i) {
-            String line = scanner.nextLine();
-            for (int j = 0; j < c_dim; ++j) {
-                this.inputCells[i][j] = (line.charAt(j) == '_') ? 0 : 1;
-            }
-        }
-        this.outCells = new int[10];  // for the 10 digits
+    public NeuralNet(InNeurons input) {
+        this.output = new int[10];  // for the 10 digits
         this.biases = new int[10];  // one bias for each digit
+        this.input = input;
         mapBiases();
-        scanner.close();  // close scanner
     }
 
-    public void reduce(int digit) {
-        int result;
+    void mapReduce() {
+        for (int i = 0; i < 10; ++i) {
+            output[i] = reduceToDigit(i) + biases[i];
+        }
+    }
+    public int reduceToDigit(int digit) {
+        Weighted wDigit = new Weighted();
+        wDigit.mapInit(digit);
+
+        int r = wDigit.r_dim;
+        int c = wDigit.c_dim;
+        int result = 0;
+        for (int i = 0; i < r; ++i) {
+            for (int j = 0; j < c; ++j) {
+                result += (this.input.map[i][j] * wDigit.map[i][j]);
+            }
+        }
+        return result;
     }
 
     void mapBiases() {
