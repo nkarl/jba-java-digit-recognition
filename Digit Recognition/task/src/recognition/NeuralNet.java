@@ -8,7 +8,6 @@ public class NeuralNet {
 
     /**
      * Initializes an array of ten output o's.
-     *
      */
     public NeuralNet() {
         var mSize = DigitMap.r_dim * DigitMap.c_dim + 1;
@@ -16,6 +15,8 @@ public class NeuralNet {
         this.weights = new double[DIGITS];
         this.wMaps = new WeightMap[DIGITS];
 
+        // IMPORTANT: remember to revise this because this is wrong
+        // this is meant to be placeholder code for the For loop
         for (int i = 0; i < DIGITS; ++i) {
             this.weights[i] = 0;
             for (int j = 0; j < DigitMap.len; ++j) {

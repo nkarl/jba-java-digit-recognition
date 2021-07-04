@@ -13,7 +13,6 @@ public abstract class DigitMap<T> {
     public static final int BLUE = 1;
     static int len = r_dim * c_dim + 1;
 
-//    protected int[] map;  // instance attribute
     protected List<T> map;
 }
 
