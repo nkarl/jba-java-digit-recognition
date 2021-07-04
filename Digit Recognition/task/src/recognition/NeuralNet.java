@@ -6,6 +6,10 @@ public class NeuralNet {
     public double[] weights;
     static final int DIGITS = 10;
 
+    /**
+     * Initializes an array of ten output o's.
+     *
+     */
     public NeuralNet() {
         var mSize = DigitMap.r_dim * DigitMap.c_dim + 1;
         this.output = new double[DIGITS];
@@ -21,6 +25,11 @@ public class NeuralNet {
         }
     }
 
+    /**
+     * Performs a complete computation loop to deduce the correct digit.
+     * @param input a given map of input neurons
+     * @return the recognized digit
+     */
     public double mapReduce(InputMap input) {
 //        for (var i = 0; i < 10; ++i) {
 //            output[i] = mapToDigit(i, input);
@@ -32,8 +41,19 @@ public class NeuralNet {
         return -1;
     }
 
+
+    /**
+     * Propagates all weights one generation forward, iff the 'yes' flag is True.
+     * @param yes
+     * @return
+     */
     public double propagate(boolean yes) {
-        return -1;
+        if (yes) {
+            double result = 0;
+            // propagate foward one generate
+            return result;
+        }
+        return 0;
     }
 
 //    double mapToDigit(int digit, InputMap input) {
