@@ -1,36 +1,51 @@
 package recognition;
 
-import java.util.Arrays;
-import java.util.Collections;
-
 public class NeuralNet {
     public double[] output;
+    public WeightMap[] wMaps;
+    public double[] weights;
+    static final int DIGITS = 10;
 
     public NeuralNet() {
         var mSize = DigitMap.r_dim * DigitMap.c_dim + 1;
-        this.output = new double[mSize];
+        this.output = new double[DIGITS];
+        this.weights = new double[DIGITS];
+        this.wMaps = new WeightMap[DIGITS];
+
+        for (int i = 0; i < DIGITS; ++i) {
+            this.weights[i] = 0;
+            for (int j = 0; j < DigitMap.len; ++j) {
+                this.weights[i] += (wMaps[i]).map.get(j);
+            }
+            this.weights[i] += (wMaps[i]).bias;
+        }
     }
 
     public double mapReduce(InputMap input) {
-        for (var i = 0; i < 10; ++i) {
-            output[i] = mapToDigit(i, input);
-        }
-        return (output) -> {
-            var list = Collections.singletonList(output);
-            return list.stream().max(Double::compare).get();
-        };
+//        for (var i = 0; i < 10; ++i) {
+//            output[i] = mapToDigit(i, input);
+//        }
+//        return (output) -> {
+//            var list = Collections.singletonList(output);
+//            return list.stream().max(Double::compare).get();
+//        };
+        return -1;
     }
 
-    double mapToDigit(int digit, InputMap input) {
-        double LinearComb = 0;
-        WeightMap w = new WeightMap();
-        int len = DigitMap.len;
-
-        for (var i = 0; i < len; ++i) {
-            LinearComb += (input.map.get(i) * w.get(i));
-        }
-        return sigmoid(LinearComb + w.b);
+    public double propagate(boolean yes) {
+        return -1;
     }
+
+//    double mapToDigit(int digit, InputMap input) {
+//        double dotProduct = 0;
+//        WeightMap w = new WeightMap();
+//        int len = DigitMap.len;
+//
+//        for (var i = 0; i < len; ++i) {
+//            dotProduct += (input.map.get(i) * w.get(i));
+//        }
+//        return sigmoid(dotProduct + w.b);
+//    }
 
     double sigmoid(double x) {
         return (1 / (1 + Math.expm1(-x)));

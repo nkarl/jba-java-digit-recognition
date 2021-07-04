@@ -3,14 +3,14 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class WeightMap extends DigitMap<Double> {
-    double b;
+    double bias;
     public WeightMap() {
         this.map = Arrays.asList(new Double[len]);
         Random random = new Random();
         for (int i = 0; i < len; ++i) {
             this.map.set(i, random.nextGaussian());
         }
-        b = random.nextGaussian();
+        bias = random.nextGaussian();
     }
 }
 
